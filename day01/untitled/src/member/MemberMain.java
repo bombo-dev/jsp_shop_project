@@ -6,7 +6,7 @@ public class MemberMain {
     public static void main(String[] args) throws IOException {
         MemberPro pro = new MemberProImpl();
         while(true) {
-            System.out.println("1. 입력 2. 출력 3. 삭제 4. 수정 5. 종료 : ");
+            System.out.print("1. 입력 2. 출력 3. 삭제 4. 수정 5. 종료 : ");
             // 아스키코드 정수화, /r/n 삭제
             int select = System.in.read() - 48;
             System.in.skip(5);

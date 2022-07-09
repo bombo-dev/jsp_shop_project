@@ -1,8 +1,6 @@
 package untitled.src.member;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class MemberProImpl implements MemberPro{
 
@@ -21,13 +19,13 @@ public class MemberProImpl implements MemberPro{
         String tel = in.next();
         Member input = new Member(name, tel);
         list.add(input);
+
     }
 
     @Override
     public void view() {
-        for(Member view : list){
-            System.out.println(view.getName());
-            System.out.println(view.getTel());
+        for(Member view: list){
+            System.out.println(view.getName() + " " + view.getTel());
         }
     }
 
