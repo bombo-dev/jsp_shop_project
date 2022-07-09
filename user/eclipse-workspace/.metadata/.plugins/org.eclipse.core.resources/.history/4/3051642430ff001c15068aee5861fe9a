@@ -1,0 +1,38 @@
+package member;
+import java.util.*;
+public class MemberProImpl implements MemberPro{
+	private List<Member> list;
+	public MemberProImpl() {
+		list = new ArrayList<>();
+	}
+	@Override
+	public void insert() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void view() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void edit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void exit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

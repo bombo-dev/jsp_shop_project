@@ -1,0 +1,42 @@
+package member;
+import java.util.*;
+
+public class MemberProImpl2 implements MemberPro {
+	private Map<String, Member> map;
+	private Scanner in;
+	public MemberProImpl2() {
+		map = new Hashtable<>();
+		in = new Scanner(System.in);
+	}
+	
+	@Override
+	public void insert() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void view() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void edit() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void exit() {
+		System.out.println("프로그램을 종료합니다.");
+		System.exit(0);	
+	}
+
+}

@@ -1,0 +1,48 @@
+package student;
+import java.sql.*;
+import java.util.*;
+
+public class StudentDAO {
+	private Connection con;
+	private PreparedStatement ps;
+	private ResultSet rs;
+
+	String url, user, pass;
+	
+	public StudentDAO(){
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		}catch(ClassNotFoundException e) {
+			System.out.println("오라클 드라이버가 없습니다!!");
+		}
+		url = "jdbc:oracle:thin:@localhost:1521:xe";
+		user = "spring07";
+		pass = "spring07";
+	}
+	
+	protected List<StudentDTO> makeList(ResultSet rs) 
+									throws SQLException{
+		
+	}
+	
+	public List<StudentDTO> listStudent(){
+		try {
+			con = DriverManager.getConnection(url, user, pass);
+			String sql = "select * from student";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
