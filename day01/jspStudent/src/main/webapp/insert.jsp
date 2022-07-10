@@ -1,31 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page import="Student.StudentDAO" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+		 pageEncoding="utf-8"%>
 <!-- insert.jsp -->
 <%
-	request.setCharacterEncoding("EUC-KR");
+	request.setCharacterEncoding("utf-8");
 %>
 <jsp:useBean id="stdto" class="Student.StudentDTO"/>
 <jsp:setProperty property="*" name="stdto" />
-<jsp:useBean id="stdao" class="Student.StudentDAO"/>
+<%--<jsp:useBean id="stdao" class="Student.StudentDAO"/>--%>
 <%
 	if (stdto.getId()==null || stdto.getId().trim().equals("") || 
 		stdto.getName()==null || stdto.getName().trim().equals("") ||
 		stdto.getCname()==null || stdto.getCname().trim().equals("")){%>
 	<script type="text/javascript">
-		alert("¾ÆÀÌµð, ÇÐ»ý¸í, ÇÐ±Þ¸íÀ» ¸ðµÎ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!!")
+		alert("ì•„ì´ë””, í•™ìƒëª…, í•™ê¸‰ëª…ì„ ëª¨ë‘ ìž…ë ¥í•´ ì£¼ì„¸ìš”!!")
 		history.back()
 	</script>	
 <%		return;
 	}
+	StudentDAO stdao = new StudentDAO();
 	int res = stdao.insertStudent(stdto);
-	if (res>0){%>
+	if (res != 0){%>
 	<script type="text/javascript">
-		alert("ÇÐ»ýµî·Ï ¼º°ø!! ÇÐ»ý¸ñ·ÏÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù.")
+		alert("í•™ìƒë“±ë¡ ì„±ê³µ!! í•™ìƒëª©ë¡íŽ˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.")
 		location.href="list.jsp"
 	</script>	
 <%	}else {%>
 	<script type="text/javascript">
-		alert("ÇÐ»ýµî·Ï ½ÇÆÐ!! ÇÐ»ý°ü¸®ÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù.")
+		alert("í•™ìƒë“±ë¡ ì‹¤íŒ¨!! í•™ìƒê´€ë¦¬íŽ˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.")
 		location.href="student.jsp"
 	</script>
 <%	}%>

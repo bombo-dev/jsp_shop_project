@@ -1,27 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" import="java.util.*, Student.*"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.util.*, Student.*"%>
 <!-- list.jsp -->
 <html>
 <head>
-	<title>ÇÐ»ý¸ñ·Ï</title>
+	<title>í•™ìƒëª©ë¡</title>
 </head>
+<% request.setCharacterEncoding("utf-8"); %>
 <jsp:useBean id="stdao" class="Student.StudentDAO"/>
 <body>
+
 	<div align="center">
 		<hr color="green" width="300">
-		<h2>ÇÐ »ý ¸ñ ·Ï º¸ ±â</h2>
+		<h2>í•™ ìƒ ëª© ë¡ ë³´ ê¸°</h2>
 		<hr color="green" width="300">
 		<table border="1" width="500">
 			<tr>
-				<th>¾ÆÀÌµð</th>
-				<th>ÇÐ»ý¸í</th>
-				<th>ÇÐ±Þ¸í</th>
+				<th>ì•„ì´ë””</th>
+				<th>í•™ìƒëª…</th>
+				<th>í•™ê¸‰ëª…</th>
 			</tr>		
-<%		//¿©±â¿¡ DB¿¡¼­ ÀÚ·á¸¦ °¡Á®¿Í Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥ ¸¸µé¾î¾ß ÇÑ´Ù 
+<%		//ì—¬ê¸°ì— DBì—ì„œ ìžë£Œë¥¼ ê°€ì ¸ì™€ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ëž¨ ë§Œë“¤ì–´ì•¼ í•œë‹¤ 
 		List<StudentDTO> list = stdao.listStudent();
 		if (list==null || list.size()==0){%>
 			<tr>
-				<td colspan="3">µî·ÏµÈ ÇÐ»ýÀÌ ¾ø½À´Ï´Ù.</td>
+				<td colspan="3">ë“±ë¡ëœ í•™ìƒì´ ì—†ìŠµë‹ˆë‹¤.</td>
 			</tr>		
 <% 		}else {
 			for(StudentDTO dto: list){%>

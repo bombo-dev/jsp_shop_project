@@ -1,60 +1,59 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!-- student.jsp -->
 <html>
 <head>
-	<title>ÇÐ»ý°ü¸®</title>
+	<title>í•™ìƒê´€ë¦¬</title>
 </head>
-
 <body>
 	<div align="center">
 		<hr color="green" width="300">
-		<h2>ÇÐ »ý µî ·Ï Æä ÀÌ Áö</h2>
+		<h2>í•™ ìƒ ë“± ë¡ íŽ˜ ì´ ì§€</h2>
 		<hr color="green" width="300">
 		<form name="f" action="insert.jsp" method="post">
 			<table border="1">
 				<tr>
-					<td>¾ÆÀÌµð : <input type="text" name="id"><br>
-					ÇÐ»ý¸í : <input type="text" name="name"><br>
-					ÇÐ±Þ¸í : <input type="text" name="cname"><br>
-					<input type="submit" value="ÀÔ·Â">
-					<input type="reset" value="Ãë¼Ò">
+					<td>ì•„ì´ë”” : <input type="text" name="id"><br>
+					í•™ìƒëª… : <input type="text" name="name"><br>
+					í•™ê¸‰ëª… : <input type="text" name="cname"><br>
+					<input type="submit" value="ìž…ë ¥">
+					<input type="reset" value="ì·¨ì†Œ">
 					</td>
 				</tr>
 			</table>
 		</form>
 		<hr color="green" width="300">
-		<h2>ÇÐ »ý »è Á¦ Æä ÀÌ Áö</h2>
+		<h2>í•™ ìƒ ì‚­ ì œ íŽ˜ ì´ ì§€</h2>
 		<hr color="green" width="300">
 		<form name="f" action="delete.jsp" method="post">
 			<table border="1">
 				<tr>
-					<td>¾ÆÀÌµð : <input type="text" name="id">
-					<input type="submit" value="»èÁ¦">
+					<td>ì•„ì´ë”” : <input type="text" name="id">
+					<input type="submit" value="ì‚­ì œ">
 					</td>
 				</tr>
 			</table>
 		</form>
 		<hr color="green" width="300">
-		<h2>ÇÐ »ý Ã£ ±â Æä ÀÌ Áö</h2>
+		<h2>í•™ ìƒ ì°¾ ê¸° íŽ˜ ì´ ì§€</h2>
 		<hr color="green" width="300">
 		<form name="f" action="find.jsp" method="post">
 			<table border="1">
 				<tr>
-					<td>ÇÐ»ý¸í : <input type="text" name="name">
-					<input type="submit" value="Ã£±â">
+					<td>í•™ìƒëª… : <input type="text" name="name" placeholder="ì´ë¦„">
+					<input type="submit" value="ì°¾ê¸°">
 					</td>
 				</tr>
 			</table>
 		</form>
 		<hr color="green" width="300">
-		<h2>ÇÐ »ý º¸ ±â Æä ÀÌ Áö</h2>
+		<h2>í•™ ìƒ ë³´ ê¸° íŽ˜ ì´ ì§€</h2>
 		<hr color="green" width="300">
 		<form name="f" action="list.jsp" method="post">
 			<table border="1">
 				<tr>
 					<td>
-						<input type="submit" value="ÇÐ»ýº¸±âÆäÀÌÁöÀÌµ¿">
+						<input type="submit" value="í•™ìƒë³´ê¸°íŽ˜ì´ì§€ì´ë™">
 					</td>
 				</tr>
 			</table>
