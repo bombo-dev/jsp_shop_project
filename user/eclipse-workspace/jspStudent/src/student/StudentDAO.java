@@ -73,6 +73,45 @@ public class StudentDAO {
 		}
 		return 0;
 	}
+	public int deleteStudent(String id) {
+		try {
+			con = DriverManager.getConnection(url, user, pass);
+			String sql = "delete from student where id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			int res = ps.executeUpdate();
+			return res;
+		}catch(SQLException e) {
+			System.out.println("deleteStudent메소드 실행시 오류 발생!!");
+		}finally {
+			try {
+				if (ps != null) ps.close();
+				if (con != null) con.close();
+			}catch(SQLException e) {}			
+		}
+		return 0;
+	}
+	
+	public List<StudentDTO> findStudent(String name){
+		try {
+			con = DriverManager.getConnection(url, user, pass);
+			String sql = "select * from student where name = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, name);
+			rs = ps.executeQuery();
+			List<StudentDTO> list = makeList(rs);
+			return list;
+		}catch(SQLException e) {
+			System.out.println("findStudent메소드 실행시 오류 발생!!");
+		}finally {
+			try {
+				if (rs != null) rs.close();
+				if (ps != null) ps.close();
+				if (con != null) con.close();
+			}catch(SQLException e) {}			
+		}
+		return null;
+	}
 }
 
 

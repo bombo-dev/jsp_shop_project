@@ -1,0 +1,22 @@
+package board;
+
+import java.sql.*;
+
+public class BoardDAO {
+	private Connection con;
+	private PreparedStatement ps;
+	private ResultSet rs;
+
+	String url, user, pass;
+	
+	public BoardDAO(){
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		}catch(ClassNotFoundException e) {
+			System.out.println("오라클 드라이버가 없습니다!!");
+		}
+		url = "jdbc:oracle:thin:@localhost:1521:xe";
+		user = "spring07";
+		pass = "spring07";
+	}
+}

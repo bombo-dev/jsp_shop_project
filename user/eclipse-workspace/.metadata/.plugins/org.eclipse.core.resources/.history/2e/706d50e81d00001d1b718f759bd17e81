@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- writeForm.jsp -->
+<html>
+<head>	
+	<title>글쓰기</title>
+</head>
+<body>
+	<div align="center">
+		<form name="f" action="writePro.jsp" method="post">
+			<table border="1" width="600">
+				<tr bgcolor="yellow">
+					<td colspan="2" align="center">글쓰기</td>
+				</tr>
+				<tr>
+					<th bgcolor="yellow" width="20%">이 름</th>
+					<td><input type="text" name="writer"></td>
+				</tr>
+				<tr>
+					<th bgcolor="yellow">제 목</th>
+					<td><input type="text" name="subject" size="60"></td>
+				</tr>
+				<tr>
+					<th bgcolor="yellow">Email</th>
+					<td><input type="text" name="email" size="60"></td>
+				</tr>
+				<tr>
+					<th bgcolor="yellow">내 용</th>
+					<td><textarea name="content" rows="13" cols="60"></textarea></td>
+				</tr>
+				<tr>
+					<th bgcolor="yellow">비밀번호</th>
+					<td><input type="password" name="passwd"></td>
+				</tr>
+				<tr bgcolor="yellow">
+					<td colspan="2" align="center">
+						<input type="submit" value="글쓰기">
+						<input type="reset" value="다시작성">
+						<input type="button" value="목록보기" 
+						onclick="window.location='list.jsp'">
+					</td>
+				</tr>
+			</table>
+			
+		</form>
+	</div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- list.jsp -->
+<html>
+<head>
+	<title>글목록</title>
+</head>
+<body>
+	<div align="center">
+		<b>글 목 록</b>
+		<table border="0" width="700">
+			<tr bgcolor="yellow">
+				<td align="right">글쓰기</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

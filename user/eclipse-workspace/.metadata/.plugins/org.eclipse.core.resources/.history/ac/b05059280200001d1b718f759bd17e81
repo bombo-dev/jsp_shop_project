@@ -1,0 +1,91 @@
+package member;
+
+import java.sql.*;
+
+public class MemberDAO {
+	private Connection con;
+	private PreparedStatement ps;
+	private ResultSet rs;
+	
+	String url, user, pass;
+	
+	public MemberDAO() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		}catch(ClassNotFoundException e) {
+			System.out.println("오라클드라이버 검색 실패!!");
+		}
+		url = "jdbc:oracle:thin:@localhost:1521:xe";
+		user = "spring07";
+		pass = "spring07";
+	}
+	
+	public boolean checkMember(String name, String ssn1, String ssn2) {
+		try {
+			con = DriverManager.getConnection(url, user, pass);
+			String sql = "select * from member where ssn1=? and ssn2=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, ssn1);
+			ps.setString(2, ssn2);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return true;
+			}else {
+				return false;
+			}
+		}catch(SQLException e) {
+			System.out.println("checkMember()실행 중 오류 발생!!");
+		}finally {
+			try {
+				if (rs != null) rs.close();
+				if (ps != null) ps.close();
+				if (con != null) con.close();
+			}catch(SQLException e) {}
+		}
+		return false;
+	}
+	
+	public int insertMember(MemberDTO dto) {
+		try {
+			con = DriverManager.getConnection(url, user, pass);
+			String sql = "insert into member values"
+			+ "(member_seq.nextval, ?,?,?,?,?,?,?,?,?,sysdate)";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getName());
+			ps.setString(2, dto.getId());
+			ps.setString(3, dto.getPasswd());
+			ps.setString(4, dto.getSsn1());
+			ps.setString(5, dto.getSsn2());
+			ps.setString(6, dto.getEmail());
+			ps.setString(7, dto.getHp1());
+			ps.setString(8, dto.getHp2());
+			ps.setString(9, dto.getHp3());
+			int res = ps.executeUpdate();
+			return res;
+		}catch(SQLException e) {
+			System.out.println("insertMember()실행 중 오류 발생!!");
+		}finally {
+			try {
+				if (ps != null) ps.close();
+				if (con != null) con.close();
+			}catch(SQLException e) {}
+		}
+		return 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

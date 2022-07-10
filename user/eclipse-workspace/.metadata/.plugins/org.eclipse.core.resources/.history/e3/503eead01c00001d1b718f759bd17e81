@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- writeForm.jsp -->
+<html>
+<head>	
+	<title>글쓰기</title>
+</head>
+<body>
+	<div align="center">
+		<form name="f" action="writePro.jsp" method="post">
+			<table border="1" width="600">
+				<tr bgcolor="yellow">
+					<td colspan="2" align="center">글쓰기</td>
+				</tr>
+				<tr>
+					<th bgcolor="yellow" width="20%">이 름</th>
+					<td><input type="text" name="writer"></td>
+				</tr>
+				<tr>
+					<th bgcolor="yellow">제 목</th>
+					<td><input type="text" name="subject" size="60"></td>
+				</tr>
+			</table>
+			
+		</form>
+	</div>
+</body>
+</html>
+
+
+
+

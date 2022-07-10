@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="java.util.*, member.*"%>
+<!-- memberAll.jsp -->
+<%@ include file="top.jsp"%>
+<jsp:useBean id="mbdao" class="member.MemberDAO" />
+<div align="center">
+	<hr color="green" width="300">
+	<h2>회 원 목 록 보 기</h2>
+	<hr color="green" width="300">
+	<table border="1" width="100%">
+		<tr bgcolor="yellow">
+			<th>번호</th>
+			<th>이름</th>
+			<th>아이디</th>
+			<th>이메일</th>
+			<th>전화번호</th>
+			<th>가입일</th>
+			<th>수정|삭제</th>
+		</tr>
+<%		//여기에 DB로부터 자료를 받아서 출력을 시켜주세요!!
+	List<MemberDTO> list = mbdao.listMember();
+	if (list==null || list.size()==0){%>
+		<tr>
+			<td colspan="7">등록된 회원이 없습니다.</td>
+		</tr>	
+<%	}else {
+		for(MemberDTO dto : list){%>
+		<tr>
+			<td><%=dto.getNo()%></td>
+			<td><%=dto.getName()%></td>
+			<td><%=dto.getId()%></td>
+			<td><%=dto.getEmail()%></td>
+			<td><%=dto.getAllHp()%></td>
+			<td><%=dto.getJoindate()%></td>
+			<td>수정 | 삭제</td>
+		</tr>	
+<%		}
+	}
+%>		
+	</table>
+</div>
+<%@ include file="bottom.jsp"%>
+
+
+
+
+
+
+
+
+
+

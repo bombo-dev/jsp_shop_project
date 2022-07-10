@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="board.*"%>
+<!-- content.jsp -->
+<jsp:useBean id="bdao" class="board.BoardDAO" />
+<%
+	String num = request.getParameter("num");
+	if (num == null || num.trim().equals("")){
+		response.sendRedirect("index.jsp");
+		return;
+	}
+	
+	BoardDTO dto = bdao.getBoard(Integer.parseInt(num)); 
+%>

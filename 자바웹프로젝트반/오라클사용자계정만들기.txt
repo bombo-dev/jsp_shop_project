@@ -1,0 +1,30 @@
+SQL> alter session set "_ORACLE_SCRIPT"=true;
+세션이 변경되었습니다.
+SQL> create user spring07 identified by spring07;
+사용자가 생성되었습니다.
+SQL> grant create session to spring07;
+권한이 부여되었습니다.
+SQL> grant connect,resource to spring07;
+권한이 부여되었습니다.
+SQL> conn spring07/spring07
+연결되었습니다.
+SQL> show user;
+USER은 "SPRING07"입니다
+SQL> create table student
+  2  (id varchar2(10),
+  3  name varchar2(15),
+  4  cname varchar2(25));
+테이블이 생성되었습니다.
+SQL> insert into student values('aaa','aaa','aaa');
+insert into student values('aaa','aaa','aaa')
+            *
+1행에 오류:
+ORA-01950: 테이블스페이스 'USERS'에 대한 권한이 없습니다.
+SQL> conn system/oracle;
+연결되었습니다.
+SQL> alter user spring07 default tablespace users quota unlimited on users;
+사용자가 변경되었습니다.
+SQL> conn spring07/spring07
+연결되었습니다.
+SQL> insert into student values('aaa','aaa','aaa');
+1 개의 행이 만들어졌습니다.

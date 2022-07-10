@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="java.util.*, student.*"%>
+<!-- find.jsp -->
+<jsp:useBean id="stdao" class="student.StudentDAO" />
+<%
+	request.setCharacterEncoding("EUC-KR");
+	String name = request.getParameter("name");
+	if (name==null || name.trim().equals("")){
+		response.sendRedirect("student.jsp");
+		return;
+	}
+	
+	List<StudentDTO> find = stdao.findStudent(name);
+%>

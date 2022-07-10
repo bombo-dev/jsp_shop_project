@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="member.*"%>
+<!-- member_update.jsp -->
+<jsp:useBean id="mbdao" class="member.MemberDAO" />
+<%
+	String no = request.getParameter("no");
+	if (no==null || no.trim().equals("")){
+		response.sendRedirect("index.jsp");
+		return;
+	}
+	
+	MemberDTO dto = mbdao.getMember(Integer.parseInt(no));
+%>

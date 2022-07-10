@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="board.*"%>
+<!-- content.jsp -->
+<jsp:useBean id="bdao" class="board.BoardDAO" />
+<%
+	String num = request.getParameter("num");
+	if (num == null || num.trim().equals("")){
+		response.sendRedirect("index.jsp");
+		return;
+	}
+	
+	BoardDTO dto = bdao.getBoard(Integer.parseInt(num)); 
+%>
+<html>
+<head>
+	<title>글내용보기</title>
+</head>
+<body>
+	<div align="center">
+		<b>글내용 보기</b>
+		<table border="1" width="600">
+			<tr>
+				<th width="20%">글번호</th>
+				<td align="center" width="30%"><%=dto.getNum()%></td>
+				<th width="20%">조회수</th>
+				<td align="center" width="30%"><%=dto.getReadcount()%></td>
+			</tr>
+		</table>	
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+

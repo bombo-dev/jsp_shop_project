@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- member_check.jsp -->
+<%
+	request.setCharacterEncoding("EUC-KR");
+	String name = request.getParameter("name");
+	String ssn1 = request.getParameter("ssn1");
+	String ssn2 = request.getParameter("ssn2");
+	if (name==null || ssn1==null || ssn2==null || 
+			name.trim().equals("") || ssn1.trim().equals("") || ssn2.trim().equals("")){
+		response.sendRedirect("index.jsp");
+		return;
+	}
+%>

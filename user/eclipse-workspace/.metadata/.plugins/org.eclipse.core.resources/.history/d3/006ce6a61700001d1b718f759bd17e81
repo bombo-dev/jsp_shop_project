@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- list.jsp -->
+<jsp:useBean id="bdao" class="board.BoardDAO" />
+<html>
+<head>
+	<title>글목록</title>
+</head>
+<body>
+	<div align="center">
+		<b>글 목 록</b>
+		<table border="0" width="700">
+			<tr bgcolor="yellow">
+				<td align="right">글쓰기</td>
+			</tr>
+		</table>
+		<table border="1" width="700">
+			<tr bgcolor="green">
+				<th>번호</th>
+				<th width="30%">제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>조회</th>
+				<th>IP</th>
+			</tr>
+<%		 %>			
+		</table>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
