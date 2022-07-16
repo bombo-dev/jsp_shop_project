@@ -143,6 +143,32 @@ public class BoardDAO {
 		}
 		return 0;
 	}
+	
+	public int updateBoard(BoardDTO dto) {
+		try {
+			BoardDTO dto2 = getBoard(dto.getNum(), "password");
+			if (!dto.getPasswd().equals(dto2.getPasswd())) {
+				return -1;
+			}
+			con = DriverManager.getConnection(url, user, pass);
+			String sql = "update board set email=?, subject=?, content=? where num=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getEmail());
+			ps.setString(2, dto.getSubject());
+			ps.setString(3, dto.getContent());
+			ps.setInt(4, dto.getNum());
+			int res = ps.executeUpdate();
+			return res;
+		}catch(SQLException e) {
+			System.out.println("updateBoard메소드 실행시 오류 발생!!");
+		}finally {
+			try {
+				if (ps != null) ps.close();
+				if (con != null) con.close();
+			}catch(SQLException e) {}			
+		}
+		return 0;
+	}
 }
 
 

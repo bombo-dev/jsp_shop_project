@@ -1,0 +1,21 @@
+package mvc1;
+
+import java.util.*;
+
+public class DepartExpert {
+	public List<String> getAdvice(String depart){
+		List<String> list = new ArrayList<>();
+		switch(depart) {
+		case "c" :
+			list.add("벨연구소에서 개발한 프로그래밍 언어");
+			list.add("프로그램을 간결하게 쓸 수 있다");
+			list.add("프로그래밍 하기 쉬운 편리한 언어이다.");
+			break;
+		case "java" :
+		case "python" :
+		case "go" :
+			
+		}
+		return list;
+	}
+}

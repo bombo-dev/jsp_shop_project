@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- deletePro.jsp -->
+<jsp:useBean id="bdao" class="board.BoardDAO" />
+<%
+	String num = request.getParameter("num");
+	String passwd = request.getParameter("passwd");
+	if (num == null || num.trim().equals("") || 
+			passwd==null || passwd.trim().equals("")){
+		response.sendRedirect("index.jsp");
+		return;
+	}	
+	int res = bdao.deleteBoard(Integer.parseInt(num), passwd);
+	if (res>0){%>
+	<script type="text/javascript">
+		alert("게시글등록 성공!! 게시글목록페이지로 이동합니다.")
+		location.href="list.jsp"
+	</script>	
+<%	}else if (res<0){%>
+	<script type="text/javascript">
+		alert("게시글등록 실패!! 게시글등록페이지로 이동합니다.")
+		location.href="writeForm.jsp"
+	</script>
+<%	}else {%>
+	<script type="text/javascript">
+		alert("게시글등록 실패!! 게시글등록페이지로 이동합니다.")
+		location.href="writeForm.jsp"
+	</script>	
+<%	}%>
+

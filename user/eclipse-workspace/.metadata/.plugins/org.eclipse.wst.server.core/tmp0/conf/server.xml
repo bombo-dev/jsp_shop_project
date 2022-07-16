@@ -152,7 +152,16 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Test" path="/Test" reloadable="true" source="org.eclipse.jst.jee.server:Test"/><Context docBase="C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspStudent" path="/jspStudent" reloadable="true" source="org.eclipse.jst.jee.server:jspStudent"/><Context docBase="C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspMember" path="/jspMember" reloadable="true" source="org.eclipse.jst.jee.server:jspMember"/><Context docBase="C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspBoard" path="/jspBoard" reloadable="true" source="org.eclipse.jst.jee.server:jspBoard"/></Host>
+      
+      
+      
+      
+      
+      <Context docBase="C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\mvcStudent" path="/mvcStudent" reloadable="true" source="org.eclipse.jst.jee.server:mvcStudent">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="5" maxWait="-1" name="jdbc/oracleXE" password="spring07" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="spring07"/>
+      </Context>
+      
+      <Context docBase="C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\mvcBoard" path="/mvcBoard" reloadable="true" source="org.eclipse.jst.jee.server:mvcBoard"/></Host>
     </Engine>
   </Service>
 </Server>

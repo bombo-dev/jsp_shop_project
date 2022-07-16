@@ -1,0 +1,41 @@
+package student;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class StudentServlet extends HttpServlet{
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html; charset=EUC-KR");
+		PrintWriter pw = resp.getWriter();
+		String cmd = req.getParameter("command");
+		
+		if (cmd.equals("insert")){
+			pw.println("<h2>학생등록페이지에서 왔어요!!</h2>");
+		}else if (cmd.equals("delete")) {
+			pw.println("<h2>학생삭제페이지에서 왔어요!!</h2>");
+		}else if (cmd.equals("find")) {
+			pw.println("<h2>학생찾기페이지에서 왔어요!!</h2>");
+		}else if (cmd.equals("list")) {
+			pw.println("<h2>학생목록페이지에서 왔어요!!</h2>");
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
