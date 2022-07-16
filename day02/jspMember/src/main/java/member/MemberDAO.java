@@ -267,4 +267,27 @@ public class MemberDAO {
         return null;
     }
 
+    public MemberDTO loginMember(String id, String pwd){
+        try {
+            String sql = "SELECT * FROM MEMBER WHERE id = ?, passwd = ?";
+            conn = DriverManager.getConnection(url, user, password);
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            pstmt.setString(2, pwd);
+            rs = pstmt.executeQuery();
+
+            List<MemberDTO> list = makeList(rs);
+            return list.get(0);
+        } catch (SQLException e) {
+            System.out.println("loginMember() 메소드에서 오류가 발생했습니다.");
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch(SQLException e) {}
+        }
+        return null;
+    }
+
 }

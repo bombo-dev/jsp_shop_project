@@ -11,10 +11,9 @@
 <%@ include file="top.jsp"%>
 <%
     request.setCharacterEncoding("utf-8");
-    String id = request.getParameter("id");
-    String name = request.getParameter("name");
 %>
 <jsp:useBean id="mbdao" class="member.MemberDAO"/>
+<jsp:setProperty name="mbdao" property="*"/>
 <div align="center">
     <hr color="green" width="300">
     <h2>검 색 회 원 보 기</h2>
@@ -30,7 +29,7 @@
             <th>수정|삭제</th>
         </tr>
         <%		//여기에 DB에서 자료를 가져와 출력하는 프로그램 만들어야 한다
-            MemberDTO dto = mbdao.selectOneMember(id, name);
+            MemberDTO dto = mbdao.selectOneMember();
             if (dto==null){%>
         <tr>
             <td colspan="7">등록된 회원이 없습니다.</td>

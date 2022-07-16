@@ -1,23 +1,31 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2022-07-10
-  Time: AM 9:36
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%-- top.jsp %--%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- top.jsp -->
 <html>
 <head>
-  <title>íšŒì›ê´€ë¦¬</title>
+	<title>È¸¿ø°ü¸®</title>
 </head>
+<%
+		boolean isLogin = false;
+		String mbId = (String)session.getAttribute("mbId");
+		if (mbId != null){
+			isLogin = true;
+		}
+%>
 <body>
-<div align="center">
-  <table border="1" width="600" height="500">
-    <tr height="10%">
-        <th><a href="memberSsn.jsp">íšŒì›ê°€ìž…</a></th>
-      <th><a href="memberAll.jsp">íšŒì›ë³´ê¸°</a></th>
-      <th><a href="memberFind.jsp">íšŒì›ì°¾ê¸°</a></th>
-    </tr>
-    <tr height="80%">
-      <td width="100%" height="100%" colspan="3">
+	<div align="center">
+		<table border="1" width="600" height="500">
+			<tr height="10%">
+				<th>
+					<%if (isLogin){ %>
+						<a href="logout.jsp">·Î±×¾Æ¿ô</a>	
+					<%}else{ %>
+						<a href="login.jsp">·Î±×ÀÎ</a>
+					<%}%>	
+				</th>	
+				<th><a href="memberSsn.jsp">È¸¿ø°¡ÀÔ</a></th>
+				<th><a href="memberAll.jsp">È¸¿øº¸±â</a></th>
+				<th><a href="memberAll.jsp?mode=find">È¸¿øÃ£±â</a></th>
+			</tr>
+			<tr height="80%">
+				<td width="100%" height="100%" colspan="4">

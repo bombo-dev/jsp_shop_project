@@ -9,11 +9,12 @@
 <%@ include file="top.jsp"%>
 
     <form id="find" action="member_find_ok.jsp" method="post">
+        <%-- submit시 select의 value 값이 들어간다 --%>
         <select name="choice" form="find">
             <option value="id">아이디</option>
             <option value="name">이름</option>
         </select>
-        <input type="text" name="choice">
+        <input type="text" name="choiceString">
         <input type="submit" value="찾기">
     </form>
 <%@ include file="bottom.jsp"%>
