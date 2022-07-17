@@ -1,0 +1,92 @@
+쇼핑몰
+#1. 관리자 페이지
+[0] 쇼핑몰관리자용 홈 만들기
+[1] 카테고리 등록
+[2] 카테고리 목록
+[3] 카테고리 삭제
+[4] 카테고리에 대한 상품 등록
+[5] 등록된 상품 목록
+[6] 상품 정보 수정
+[7] 상품 정보 삭제
+cf> admin 으로 로그인 할때 권한 부여...세션으로 처리
+
+<1> 파일명 규칙
+0) 템플릿 페이지 설정
+WebContent/myshop/admin/
+top.jsp		: 관리자 모드 top 화면 구성	
+main.jsp		: 첫페이지 안에 들어갈 내용(일반 사진을 올리자)
+bottom.jsp	: 관리자 모드 bottom 화면구성
+
+1) 카테고리 관련
+WebContent/myshop/admin/
+~/cate_input.jsp 	: 카테고리 입력폼
+~/cate_input_ok.jsp: 카테고리 입력 처리 로직
+~/cate_list.jsp 	: 카테고리 목록
+~/cate_delete.jsp	: 카테고리 삭제
+------------------------------
+create table category(
+	cnum 	number primary key,
+	code 	varchar2(20) not null,
+	cname 	varchar2(50) not null
+);
+create sequence cate_seq
+start with 1
+increment by 1;
+------------------------------
+my.shop/
+CategoryBean - dao file
+CategoryDTO  - dto file
+------------------------------
+
+2) 상품[관리자] 관련
+WebContent/myshop/admin/
+~ prod_input.jsp		: 상품 등록 폼
+~ prod_input_ok.jsp	: 상품 등록 처리
+~ prod_list.jsp		: 상품 목록
+~ prod_view.jsp		: 상품 상세보기
+~ prod_delete.jsp		: 상품 삭제
+~ prod_update.jsp		: 상품 수정 폼
+~ prod_update_ok.jsp	: 상품 수정 처리
+----------------------------------
+create table product(
+	pnum 		number primary key,
+	pname 		varchar2(50) not null,
+	pcategory_fk  	varchar2(20) not null,
+	pcompany 	varchar2(50),
+	pimage   		varchar2(30),
+	pqty		number,
+	price   		number,
+	pspec   		varchar2(12),
+	pcontents 	varchar2(300),
+	point   		number,
+	pinputdate 	varchar2(10)
+);
+create sequence prod_seq
+start with 1
+increment by 1;
+----------------------------------
+my.shop/
+ProductBean : dao file
+ProductDTO  : dto file
+----------------------------------
+
+#2. 사용자 페이지
+[1] 쇼핑몰 상품 디스플레이-mall.jsp
+WebContent/myshop/display/
+		~mall.jsp
+쇼핑몰 템플릿 페이지
+~ mall_top.jsp
+~ mall_bottom.jsp
+쇼핑몰 메인 페이지
+~ mall.jsp 
+~ mall_prodView.jsp : 상품 상세보기 페이지
+~ mall_cgProdList.jsp : 카테고리별로 상품목록 전시 페이지
+~ mall_cartAdd.jsp : 장바구니에 상품 추가 로직 페이지
+~ mall_cartList.jsp: 장바구니 목록보기 페이지
+~ mall_cartDel.jsp : 장바구니에서 상품 삭제 페이지
+~ mall_cartEdit.jsp : 장바구니 수량 수정 페이지
+----------------------------------
+my.shop.mall/
+CartBean : 장바구니 구현하는 파일
+ProductList  : 상품목록을 보여주기 위한 파일
+----------------------------------
