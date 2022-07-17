@@ -1,0 +1,16 @@
+package shop.controller;
+
+public class CommandFactory {
+	private CommandFactory() {}
+	private static CommandFactory instance = new CommandFactory();
+	public static CommandFactory getInstance() {
+		return instance;
+	}
+	
+	public CommandIf createCommand(String cmd) {
+		CommandIf cmdIf = null;
+		
+		
+		return cmdIf;
+	}
+}

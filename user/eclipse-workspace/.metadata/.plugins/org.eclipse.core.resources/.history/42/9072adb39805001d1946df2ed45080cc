@@ -1,0 +1,26 @@
+package shop.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class CategoryDAO {
+	private Connection con;
+	private PreparedStatement ps;
+	private ResultSet rs;
+
+	static DataSource ds;
+	static {
+		try {
+			Context init = new InitialContext();
+			ds = (DataSource)init.lookup("java:/comp/env/jdbc/oracleXE");
+		}catch(NamingException e) {
+			e.printStackTrace();
+		}
+	}
+}

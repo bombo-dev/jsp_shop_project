@@ -6,7 +6,14 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
 <fullyQualifiedTypeName name="javax.naming.Context"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="board.dto.BoardDTO"/>
+<fullyQualifiedTypeName name="board.dao.BoardDAO"/>
+<fullyQualifiedTypeName name="board.dao.BoardDAOImpl"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="shop.dto.CategoryDTO"/>
+<fullyQualifiedTypeName name="shop.dao.CategoryDAO"/>
 </qualifiedTypeNameHistroy>

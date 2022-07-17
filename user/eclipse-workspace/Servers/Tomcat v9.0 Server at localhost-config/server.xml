@@ -161,7 +161,11 @@
       	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="5" maxWait="-1" name="jdbc/oracleXE" password="spring07" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="spring07"/>
       </Context>
       
-      <Context docBase="mvcBoard" path="/mvcBoard" reloadable="true" source="org.eclipse.jst.jee.server:mvcBoard"/></Host>
+      
+      <Context docBase="mvcShop" path="/mvcShop" reloadable="true" source="org.eclipse.jst.jee.server:mvcShop">
+     	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="5" maxWait="-1" name="jdbc/oracleXE" password="spring07" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="spring07"/>	
+      </Context>
+      </Host>
     </Engine>
   </Service>
 </Server>

@@ -1,0 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ include file="top.jsp" %>
+	<img src="image1.png" width="600" height="400">
+<%@ include file="bottom.jsp" %>				

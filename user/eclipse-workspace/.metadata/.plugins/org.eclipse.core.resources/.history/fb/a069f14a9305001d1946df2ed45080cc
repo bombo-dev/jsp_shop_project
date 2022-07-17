@@ -1,0 +1,34 @@
+package shop.controller;
+
+public class CommandFactory {
+	private CommandFactory() {}
+	private static CommandFactory instance = new CommandFactory();
+	public static CommandFactory getInstance() {
+		return instance;
+	}
+	
+	public CommandIf createCommand(String cmd) {
+		CommandIf cmdIf = null;
+		
+		if (cmd.equals("/board_list.board")) {
+			cmdIf = new BoardListCommand();
+		}else if (cmd.equals("/board_writeForm.board")) {
+			cmdIf = new BoardWriteFormCommand();
+		}else if (cmd.equals("/board_writePro.board")) {
+			cmdIf = new BoardWriteProCommand();
+		}else if (cmd.equals("/board_content.board")) {
+			cmdIf = new BoardContentCommand();
+		}else if (cmd.equals("/board_deleteForm.board")) {
+			cmdIf = new BoardDeleteFormCommand();
+		}else if (cmd.equals("/board_deletePro.board")) {
+			cmdIf = new BoardDeleteProCommand();
+		}else if (cmd.equals("/board_updateForm.board")) {
+			cmdIf = new BoardUpdateFormCommand();
+		}else if (cmd.equals("/board_updatePro.board")) {
+			cmdIf = new BoardUpdateProCommand();
+		}
+			
+		
+		return cmdIf;
+	}
+}
