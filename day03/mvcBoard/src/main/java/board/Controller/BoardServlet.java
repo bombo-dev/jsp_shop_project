@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class BoardServlet extends HttpServlet {
     @Override
@@ -20,8 +19,8 @@ public class BoardServlet extends HttpServlet {
 
         CommandFactory factory = CommandFactory.getInstance();
         CommandIf cmdIf = factory.createCommand(cmd);
-        // RequestDispatcher rd = req.getRequestDispatcher("list.jsp");
-        // rd.forward(req, resp);
-
+        String nextPage = (String)cmdIf.processCommand(req, resp);
+        RequestDispatcher rd = req.getRequestDispatcher(nextPage);
+        rd.forward(req, resp);
     }
 }

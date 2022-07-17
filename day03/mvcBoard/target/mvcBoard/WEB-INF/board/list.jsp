@@ -1,8 +1,8 @@
-<%@ page import="board.BoardDTO" %>
+<%@ page import="board.DTO.BoardDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- list.jsp -->
-<jsp:useBean id="bdao" class="board.BoardDAO" />
+<% List<BoardDTO> list = (List<BoardDTO>)request.getAttribute("boardList"); %>
 <html>
 <head>
 	<title>글목록</title>
@@ -13,7 +13,7 @@
 		<table border="0" width="700">
 			<tr bgcolor="yellow">
 				<td align="right">
-					<a href="writeForm.jsp">글쓰기</a>
+					<a href="board_writeForm.do">글쓰기</a>
 				</td>
 			</tr>
 		</table>
@@ -26,7 +26,7 @@
 				<th>조회</th>
 				<th>IP</th>
 			</tr>
-<%		List<BoardDTO> list = bdao.listBoard();
+<%
 		if (list==null || list.size()==0){%>
 			<tr>
 				<td colspan="6">등록된 게시글이 없습니다.</td>				
@@ -35,7 +35,7 @@
 			for(BoardDTO dto : list){%>
 			<tr>
 				<td><%=dto.getNum()%></td>
-				<td><a href="content.jsp?num=<%=dto.getNum()%>"><%=dto.getSubject()%></a></td>
+				<td><a href="board_content.do?num=<%=dto.getNum()%>"><%=dto.getSubject()%></a></td>
 				<td><%=dto.getWriter()%></td>
 				<td><%=dto.getReg_date()%></td>
 				<td><%=dto.getReadcount()%></td>

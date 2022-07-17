@@ -6,11 +6,11 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>board</servlet-name>
-    <servlet-class>board.BoardServlet</servlet-class>
+    <servlet-class>board.Controller.BoardServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
     <servlet-name>board</servlet-name>
-    <url-pattern>/board_list.do</url-pattern>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -8,15 +8,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-public class BoardListCommand implements CommandIf{
+public class BoardUpdateFormCommand implements CommandIf {
     @Override
     public Object processCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        String num = req.getParameter("num");
         BoardDAO dao = new BoardDAOImpl();
-        List<BoardDTO> list = dao.listBoard();
-        req.setAttribute("boardList", list);
-        return "WEB-INF/board/list.jsp";
+        BoardDTO dto = dao.getBoard(Integer.parseInt(num), "update");
+        req.setAttribute("update", dto);
+
+        return "WEB-INF/board/updateForm.jsp";
     }
 }
