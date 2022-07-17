@@ -11,6 +11,7 @@
 <%
     BoardDTO dto = (BoardDTO)request.getAttribute("content");
 %>
+
 <html>
 <head>
     <title>글 내용 보기</title>
@@ -23,7 +24,7 @@
         <table border="1" width="600">
             <tr>
                 <th width="20%" bgcolor="yellow">글번호</th>
-                <td align="center" width="30%"><%=dto.getNum()%></td>
+                <td align="center" width="30%">${requestScope.content.num}</td>
                 <th width="20%" bgcolor="yellow">조회수</th>
                 <td align="center" width="30%"><%=dto.getReadcount()%></td>
             </tr>

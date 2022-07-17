@@ -34,7 +34,7 @@ public class BoardDeleteProCommand implements CommandIf {
             String url = "board_content.do?num="+num;
             req.setAttribute("msg", msg);
             req.setAttribute("url", url);
-        } 
+        }
         return "message.jsp";
     }
 }
