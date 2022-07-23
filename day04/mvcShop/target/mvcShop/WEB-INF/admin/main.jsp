@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- index.jsp -->
 <%@ include file="top.jsp"%>
-<img src="img/jebree.png">
+<img src="../../img/jebree.png">
 <%@ include file="bottom.jsp"%>
 

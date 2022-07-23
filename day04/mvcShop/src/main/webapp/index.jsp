@@ -13,6 +13,6 @@
 <body>
     <h2><a href="shop_admin.do">관리자 페이지로 이동</a></h2>
 
-    <h2><a href="#">사용자 페이지로 이동</a></h2>
+    <h2><a href="mall.do">사용자 페이지로 이동</a></h2>
 </body>
 </html>

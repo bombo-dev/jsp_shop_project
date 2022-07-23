@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDAOImpl implements CategoryDAO {
+public class CategoryDAOImpl implements CategoryDAO{
 
     private Connection conn;
     private PreparedStatement pstmt;
@@ -24,16 +24,39 @@ public class CategoryDAOImpl implements CategoryDAO {
     static {
         try {
             Context init = new InitialContext();
-            ds = (DataSource) init.lookup("java:/comp/env/jdbc/oracleXE");
+            ds = (DataSource)init.lookup("java:comp/env/jdbc/oracleXE");
         } catch (NamingException e) {
             e.printStackTrace();
         }
     }
 
-    protected List<CategoryDTO> makeList(ResultSet rs)
-            throws SQLException {
+    @Override
+    public int categoryInsert(CategoryDTO dto) {
+        try {
+            String sql = "INSERT INTO CATEGORY VALUES(cate_seq.nextval, ?, ?)";
+            conn = ds.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, dto.getCode());
+            pstmt.setString(2, dto.getCname());
+
+            int res = pstmt.executeUpdate();
+            return res;
+        } catch (SQLException e) {
+            System.out.println("categoryInsert() 메소드에서 오류가 발생했습니다." + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+            }
+        }
+        return 0;
+    }
+
+    protected List<CategoryDTO> makeList(ResultSet rs) throws SQLException{
         List<CategoryDTO> list = new ArrayList<>();
-        while (rs.next()) {
+        while(rs.next()){
             CategoryDTO dto = new CategoryDTO();
             dto.setCname(rs.getString("cname"));
             dto.setCnum(rs.getInt("cnum"));
@@ -44,37 +67,42 @@ public class CategoryDAOImpl implements CategoryDAO {
     }
 
     @Override
-    public List<CategoryDTO> listCategory() {
+    public List<CategoryDTO> categoryList() {
         try {
-            String sql = "select * from category order by cnum desc";
+            String sql = "SELECT * FROM CATEGORY ORDER BY cnum DESC";
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
             List<CategoryDTO> list = makeList(rs);
-
             return list;
         } catch (SQLException e) {
-            System.out.println("listCategory() 메소드에서 오류가 발생했습니다." + e.getMessage());
+            System.out.println("categoryList() 메소드에서 오류가 발생했습니다.");
         } finally {
             try {
                 if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
             } catch(SQLException e) {}
         }
         return null;
     }
 
     @Override
-    public int insertCategory(CategoryDTO dto) {
+    public int categoryDelete(int num) {
         try {
-            String sql = "Insert into category Values(cate_seq.nextval,?, ?)";
+            String sql = "Delete from category where cnum = ?";
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, dto.getCode());
-            pstmt.setString(2, dto.getCname());
-
+            pstmt.setInt(1, num);
             int res = pstmt.executeUpdate();
+            return res;
         } catch (SQLException e) {
-            System.out.println("insertCategory() 메소드에서 오류가 발생했습니다." + e.getMessage());
+            System.out.println("categoryDelete() 메소드에서 오류가 발생했습니다." + e.getMessage());
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch(SQLException e) {}
         }
         return 0;
     }
