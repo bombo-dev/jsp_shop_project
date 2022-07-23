@@ -19,7 +19,33 @@ public class CommandFactory {
 			cmdIf = new CateListCommand();
 		}else if (cmd.equals("/cate_delete.mall")) {
 			cmdIf = new CateDeleteCommand();
+		}else if (cmd.equals("/prod_input.mall")) {
+			cmdIf = new ProdInputCommand();
+		}else if (cmd.equals("/prod_input_ok.mall")) {
+			cmdIf = new ProdInputOkCommand();
+		}else if (cmd.equals("/prod_list.mall")) {
+			cmdIf = new ProdListCommand();
+		}else if (cmd.equals("/prod_view.mall")) {
+			cmdIf = new ProdViewCommand();
+		}else if (cmd.equals("/prod_delete.mall")) {
+			cmdIf = new ProdDeleteCommand();
+		}else if (cmd.equals("/prod_update.mall")) {
+			cmdIf = new ProdUpdateCommand();
+		}else if (cmd.equals("/prod_update_ok.mall")) {
+			cmdIf = new ProdUpdateOkCommand();
+		}else if (cmd.equals("/displayShop.mall")) {
+			cmdIf = new ShopMainCommand();
+		}else if (cmd.equals("/cgProdList.mall")){
+			cmdIf = new CgProdListCommand();
+		}else if (cmd.equals("/prodView.mall")){
+			cmdIf = new ProdViewMallCommand();
 		}
 		return cmdIf;
 	}
 }
+
+
+
+
+
+

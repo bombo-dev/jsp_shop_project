@@ -14,7 +14,7 @@
 				<td align="center" width="20%"><a href="cate_list.mall">카테고리목록</a></td>
 				<td align="center" width="20%"><a href="prod_input.mall">상품등록</a></td>
 				<td align="center" width="20%"><a href="prod_list.mall">상품목록</a></td>
-				<td align="center" width="20%">쇼핑몰홈</td>
+				<td align="center" width="20%"><a href="displayShop.mall">쇼핑몰홈</a></td>
 			</tr>
 			<tr height="400">
 				<td colspan="5" align="center">
