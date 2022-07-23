@@ -1,0 +1,33 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: munjong-un
+  Date: 2022/07/17
+  Time: 4:26 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="top.jsp"%>
+<div align="center">
+    카테고리 등록
+    <br>
+    <form id="f" action="cate_input_ok.do" method="post">
+        <table border="1" width="350" height="100">
+            <tr>
+                <th bgcolor="yellow" width="30%">카테고리 코드</th>
+                <td width="70%"><input type="text" name="code"></td>
+            </tr>
+            <tr>
+                <th bgcolor="yellow" width="30%">카테고리 이름</th>
+                <td width="70%"><input type="text" name="cname"></td>
+            </tr>
+            <tr>
+                <th bgcolor="orange" colspan="2" align="center">
+                    <input type="submit" value="등록">
+                    <input type="button" value="취소"
+                           onclick="window.location='adminShop.do'">
+                </th>
+            </tr>
+        </table>
+    </form>
+</div>
+<%@include file="bottom.jsp"%>
