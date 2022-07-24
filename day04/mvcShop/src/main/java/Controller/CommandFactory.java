@@ -43,6 +43,8 @@ public class CommandFactory {
             cmdIf = new MallCategoryProductListCommand();
         } else if(cmd.equals("/prodView.do")){
             cmdIf = new MallProdViewCommand();
+        } else if(cmd.equals("/ProdShoppingBasket.do")){
+            cmdIf = new ProdShoppingBasketCommand();
         }
         return cmdIf;
     }

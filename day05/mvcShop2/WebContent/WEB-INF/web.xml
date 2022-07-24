@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+<servlet>
+	<servlet-name>mall</servlet-name>
+	<servlet-class>shop.controller.ShopServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>mall</servlet-name>
+	<url-pattern>*.mall</url-pattern>
+</servlet-mapping>
+</web-app>

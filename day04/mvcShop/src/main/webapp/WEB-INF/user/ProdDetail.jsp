@@ -27,8 +27,8 @@
                 상품갯수 : <input type="text" name="qty" size="3" value="1">개<br><br>
                 <input type="hidden" name="pnum" value="${dto.pnum}">
                 <input type="hidden" name="select" value="${param.select}">
-                <a href="javascript:goCart()">장바구니</a>
-                <a href="javascript:goOrder()">즉시구매</a>
+                <a href="ProdShoppingBasket.do?pnum=${dto.pnum}">장바구니</a>
+                <a href="ProdBuyNow.do">즉시구매</a>
             </form>
         </td>
     </tr>
