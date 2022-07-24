@@ -1,0 +1,32 @@
+MVC패턴
+index.jsp -> Servlet(cmd) -> factory(command) -> Servlet(command)
+-> 해당Command -> Servlet(nextPage) -> nextPage
+
+spring-MVC패턴
+index.jsp -> 	DispatcherServlet -> HandlerMapping -> 
+		DispatcherServlet -> Controller ->
+		(DispatcherServlet -> ViewResolver ->)
+		DispatcherServlet -> View
+
+1. DispatcherServlet
+	1) org.springframework.web.servlet.DispatcherServlet
+
+2. HandlerMapping(org.springframework.web.servlet.handler)
+	1) BeanNameUrlHandlerMapping : default(알아서 만들어준다)
+	2) SimpleUrlHandlerMapping
+
+3. Controller(org.springframework.web.servlet.mvc) : 실제구현하는 곳
+	1) Controller(interface)
+	2) AbstractController
+	3) AbstractCommandController
+	4) SimpleFormController
+
+4. ViewResolver(org.springframework.web.servlet.view)
+	1) InternalResourceViewResolver : default(알아서 만들어준다)
+	2) ResourceBundleViewResolver
+	3) velocity.VelocityViewResolver : 외부프레임워크를 통해 결과를 본다
+
+5. View(org.springframework.web.servlet.view) : 실제 보여지는 객체
+	1) InternalResourceView : default(알아서 만들어준다)
+	2) JstlView
+	3) VelocityView

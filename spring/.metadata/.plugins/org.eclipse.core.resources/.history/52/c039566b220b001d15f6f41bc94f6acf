@@ -1,0 +1,46 @@
+package board.dao;
+
+import java.util.List;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import board.dto.BoardDTO;
+
+public class BoardDAOImpl implements BoardDAO {
+	private JdbcTemplate jdbcTemplate;
+	
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	@Override
+	public int insertBoard(BoardDTO dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteBoard(int num, String passwd) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateboard(BoardDTO dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public BoardDTO getBoard(int num, String mode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BoardDTO> listBoard() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,6 @@
+package student.dao;
+
+public interface StudentDAO {
+	public int insertStudent(StudentDTO dto);
+	 
+}

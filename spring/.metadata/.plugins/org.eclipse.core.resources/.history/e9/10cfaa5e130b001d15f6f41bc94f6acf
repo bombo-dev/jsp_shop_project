@@ -1,0 +1,47 @@
+package student.dao;
+
+import java.util.List;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import student.dto.StudentDTO;
+
+public class StudentDAOImpl implements StudentDAO {
+	private JdbcTemplate jdbcTemplate;
+		
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	@Override
+	public int insertStudent(StudentDTO dto) {
+		String sql = "insert into student values(?, ?, ?)";
+		Object[] values = new Object[] 
+				{dto.getId(), dto.getName(), dto.getCname()};
+		int res = jdbcTemplate.update(sql, values);
+		//update : insert, delete, update시 사용
+		//query : List타입으로 결과를 받아올때
+		//queryForObject : DTO값을 결과로 받아올때
+		//queryForInt : count, max, min ... 정수형태의 결과를 받아올때
+		return res;
+	}
+
+	@Override
+	public int deleteStudent(String id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<StudentDTO> findStudent(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<StudentDTO> listStudent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
