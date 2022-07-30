@@ -32,7 +32,7 @@
 </head>
 <body>
 	<div align="center">
-		<form name="f" action="board_updatePro.do" 
+		<form name="f" action="board_update.do" 
 		 	method="post" onsubmit="return check()">
 		 	<input type="hidden" name="num" value="${getBoard.num}"/>	
 			<table border="1" width="600">

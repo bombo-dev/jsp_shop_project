@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class DeleteFormController{
 
-    public String deleteForm(HttpServletRequest req) {
-        String num = req.getParameter("num");
+    public String deleteForm(HttpServletRequest req, int num) {
+
         req.setAttribute("num", num);
 
         return "/board/deleteForm";

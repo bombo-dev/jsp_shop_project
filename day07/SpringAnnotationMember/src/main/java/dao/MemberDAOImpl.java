@@ -37,17 +37,6 @@ public class MemberDAOImpl implements MemberDAO {
         }
     }
 
-    private String search;
-    private String searchString;
-
-    public void setSearch(String search) {
-        this.search = search;
-    }
-
-    public void setSearchString(String searchString) {
-        this.searchString = searchString;
-    }
-
     public boolean checkMember(String name, String ssn1, String ssn2) {
         String sql = "select * from member where ssn1=? and ssn2=?";
         Object[] values = new Object[]{ssn1, ssn2};
@@ -60,7 +49,7 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public List<MemberDTO> findMember(MemberDTO dto) {
+    public List<MemberDTO> findMember(String search, String searchString) {
         String sql = "select * from member where " + search + " = ?";
 
         List<MemberDTO> list = jdbcTemplate.query(sql, new MyRowMapper(), searchString);

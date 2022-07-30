@@ -1,6 +1,7 @@
 package board.controller;
 
 import board.DAO.BoardDAO;
+import board.resource.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +17,9 @@ public class DeleteProController {
     private BoardDAO boardDAO;
 
     @RequestMapping("/board_deletePro.do")
-    public String deletePro(HttpServletRequest req){
+    public String deletePro(HttpServletRequest req, int num, String passwd){
 
-        String num = req.getParameter("num");
-        String passwd = req.getParameter("passwd");
-
-        int res = boardDAO.deleteBoard(Integer.parseInt(num), passwd);
+        int res = BoardMapper.deleteBoard(num);
 
         if (res>0) {
             req.setAttribute("msg", "게시글 삭제 성공!! 게시글 목록 페이지로 이동합니다.");

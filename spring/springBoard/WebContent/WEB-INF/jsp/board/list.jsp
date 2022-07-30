@@ -12,7 +12,7 @@
 		<table border="0" width="700">
 			<tr bgcolor="yellow">
 				<td align="right">
-					<a href="board_writeForm.do">글쓰기</a>
+					<a href="board_write.do">글쓰기</a>
 				</td>
 			</tr>
 		</table>

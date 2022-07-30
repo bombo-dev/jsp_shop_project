@@ -2,6 +2,7 @@ package board.controller;
 
 import board.DAO.BoardDAO;
 import board.DTO.BoardDTO;
+import board.resource.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ public class UpdateProController {
 
     @RequestMapping("/board_updatePro.do")
     public String updatePro(HttpServletRequest req, BoardDTO dto){
-        int res = boardDAO.updateBoard(dto);
+        int res = BoardMapper.updateBoard(dto);
 
         if (res>0) {
             req.setAttribute("msg", "게시글 수정 성공!! 게시글 목록 페이지로 이동합니다.");

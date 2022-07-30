@@ -2,6 +2,7 @@ package board.controller;
 
 import board.DAO.BoardDAO;
 import board.DTO.BoardDTO;
+import board.resource.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class WriteProController{
     public String writePro(HttpServletRequest req, BoardDTO dto) {
 
         dto.setIp(req.getRemoteAddr());
-        int res = boardDAO.insertBoard(dto);
+        int res = BoardMapper.insertBoard(dto);
 
         if ( res > 0 ) {
             String msg = "게시글 등록 성공!! 게시글 목록 페이지로 이동합니다.";

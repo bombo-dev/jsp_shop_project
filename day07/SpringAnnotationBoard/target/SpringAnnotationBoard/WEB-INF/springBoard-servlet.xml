@@ -15,7 +15,7 @@
             <value>.jsp</value>
         </property>
     </bean>
-
+<!--
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
@@ -29,10 +29,10 @@
 
     <bean id="boardDAO" class="board.DAO.BoardDAOImpl">
     </bean>
-
+-->
     <bean name="/board_list.do" class="board.controller.BoardListController">
     </bean>
-
+<!--
     <bean name="/board_writeForm.do" class="board.controller.WriteFormController">
     </bean>
 
@@ -53,6 +53,7 @@
 
     <bean name="/board_deletePro.do" class="board.controller.DeleteProController">
     </bean>
+    -->
 
 
 </beans>

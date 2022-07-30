@@ -2,6 +2,7 @@ package board.controller;
 
 import board.DAO.BoardDAO;
 import board.DTO.BoardDTO;
+import board.resource.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ import java.util.List;
 @Controller
 public class BoardListController{
 
-    @Autowired
-    private BoardDAO boardDAO;
+//    @Autowired
+//    private BoardDAO boardDAO;
 
 //    @Autowired
 //    public BoardListController(BoardDAO boardDAO){
@@ -24,7 +25,8 @@ public class BoardListController{
 
     @RequestMapping("/board_list.do")
     public String listBoard(HttpServletRequest req){
-        List<BoardDTO>list = boardDAO.listBoard();
+//        List<BoardDTO>list = boardDAO.listBoard();
+        List<BoardDTO> list = BoardMapper.listBoard();
         req.setAttribute("boardList", list);
         return "/board/list";
     }
