@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member.resource.MemberMapper">
+
+    <insert id="insertMember" parameterType="memberDTO">
+        insert into member2 values(member_seq.nextval, #{name}, #{id}, #{passwd}, #{ssn1}, #{ssn2}, #{email}, #{hp1}, #{hp2}, #{hp3}, sysdate)
+    </insert>
+
+    <select id="listMember" resultType="memberDTO">
+        select * from member2
+    </select>
+
+    <select id="getMember" resultType="memberDTO" parameterType="int">
+        select * from member2 where no = #{no}
+    </select>
+
+    <select id="findMember" resultType="memberDTO" parameterType="Map">
+        select * from member2 where #{search} = #{searchString}
+    </select>
+
+    <select id="checkMember" resultType="boolean" parameterType="hashMap">
+        select * from member2 where ssn1=#{ssn1} and ssn2=#{ssn2}
+    </select>
+
+    <delete id="deleteMember" parameterType="int">
+        delete from member2 where no = #{no}
+    </delete>
+
+    <update id="updateMember" parameterType="memberDTO">
+        update member2 set passwd=#{passwd}, email=#{email}, hp1=#{hp1}, hp2=#{hp2}, hp3=#{hp3} where no = #{no}
+    </update>
+</mapper>
