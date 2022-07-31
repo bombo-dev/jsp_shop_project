@@ -12,7 +12,7 @@ import member.dto.*;
 public class MemberDAOImpl implements MemberDAO{
 
 	private JdbcTemplate jdbcTemplate;
-	
+	  
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
