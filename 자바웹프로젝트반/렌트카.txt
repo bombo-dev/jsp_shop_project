@@ -1,0 +1,54 @@
+차종DB
+ - 번호	primary key
+ - 차종code			10자리(2:회사, 2:종류, 2:유종, 4:차)
+ - 차종명
+ - 종류(경차, 소형, 중형, 대형, SUV, 승합, 외제)
+ - 유종(휘발류, LPG, 경유, hibrid, 전기, 수소)
+
+create table CarName
+(num number primary key,
+carCode varchar2(8) not null,
+carName varchar2(50) not null,
+carType varchar2(10) not null,
+carFuel varchar2(10) not null);
+
+create sequence carName_seq;
+
+차량DB
+ - 번호
+ - 차량번호 
+ - 차종code
+ - 색상
+ - 대여가
+ - 대여여부
+
+create table rentCar
+(num number primary key,
+carNum varchar2(10) not null,
+nameNum number,
+carImage varchar2(50) not null,
+carColor varchar2(8) not null,
+carRentPrice number default 0,
+carRent varchar2(1) check(carRent in ('Y', 'N')),
+foreign key(nameNum) references carName(num));
+
+create sequence rentCar_seq;
+
+회원DB
+ - 번호
+ - 회원명
+ - 아이디
+ - 비밀번호
+ - 이메일
+ - 전화번호
+ - 포인트
+ - 가입일
+ - 생년월일
+
+대여내역
+ - 번호
+ - 회원번호
+ - 차종번호
+ - 대여일
+ 
+ 
