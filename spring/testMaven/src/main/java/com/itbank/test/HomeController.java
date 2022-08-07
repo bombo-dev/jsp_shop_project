@@ -1,10 +1,12 @@
 package com.itbank.test;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itbank.test.dto.StudentDTO;
@@ -31,6 +35,9 @@ public class HomeController {
 	
 	@Autowired
 	private StudentMapper studentMapper;
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -54,6 +61,27 @@ public class HomeController {
 	@RequestMapping("/student.do")
 	public String student_index() {
 		return "student/student";
+	}
+	
+	@RequestMapping("/fileUpload.do")
+	public String fileUpload() {
+		return "fileUpload";
+	}
+	
+	@RequestMapping("/fileUpload_ok.do")
+	public String fileUpload_ok(HttpServletRequest req) {
+		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
+		MultipartFile file = mr.getFile("filename");
+		String filename = file.getOriginalFilename();
+		
+		File target = new File(uploadPath, filename);
+		if (file.getSize()>0) {
+			try {
+				file.transferTo(target);
+				
+			}catch(Exception e) {}
+		}
+		return "index";
 	}
 	
 	@RequestMapping("/list.do")
