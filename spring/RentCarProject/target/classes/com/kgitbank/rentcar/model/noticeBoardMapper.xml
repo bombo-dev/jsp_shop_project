@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kgitbank.rentcar.model.noticeBoardMapper">
+	<select id="listBoard" resultType="noticeBoardDTO">
+ 		select * from notice_board order by num desc
+ 	</select>
+ 	
+ 	<insert id="insertBoard" parameterType="noticeBoardDTO">
+ 		insert into notice_board values(notice_board_seq.nextval, 
+ 		 #{writer}, #{email}, #{subject}, #{passwd}, sysdate, 0, #{content})
+ 	</insert>
+ 	
+ 	<select id="getBoard" resultType="noticeBoardDTO" parameterType="int">
+ 		select * from notice_board where num = #{num}
+ 	</select>
+ 	
+ 	<update id="plusReadcount" parameterType="int">
+ 		update notice_board set readcount = readcount + 1 where num = #{num}
+ 	</update>
+</mapper>

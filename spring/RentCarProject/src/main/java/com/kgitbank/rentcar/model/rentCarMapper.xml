@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kgitbank.rentcar.model.rentCarMapper">
+ 	<insert id="insertCarName" parameterType="carNameDTO">
+ 		insert into carname values(rentcar_seq.nextval, #{carCode}, #{carName}, 
+ 			#{carType}, #{carFuel}, #{carInfo}, #{carCompany}, #{carImage})
+ 	</insert>
+ 	
+ 	<select id="listCarName" resultType="carNameDTO">
+ 		select * from carname
+ 	</select>
+ 	
+ 	<select id="getCarName" resultType="carNameDTO" parameterType="int">
+ 		select * from carname where num = #{num}
+ 	</select>
+ 	
+ 	<delete id="deleteCarName" parameterType="int">
+ 		delete from carname where num = #{num}
+ 	</delete> 
+ 	
+ 	<update id="updateCarName" parameterType="java.util.Map">
+ 		update carname set carInfo=#{carInfo} where num = #{num}
+ 	</update>
+</mapper>

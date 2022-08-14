@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kgitbank.rentcar.model.memberMapper">
+ 	<select id="checkMember" parameterType="java.util.Map" resultType="memberDTO">
+ 		select * from member where ssn1=#{ssn1} and ssn2=#{ssn2}
+ 	</select>
+ 	
+ 	<select id="findMember" parameterType="java.util.Map" resultType="memberDTO">
+ 		select * from member where ${search} = #{searchString}
+ 	</select>
+ 	
+ 	<insert id="insertMember" parameterType="memberDTO">
+ 		insert into member values(member_seq.nextval,#{name},#{id},
+ 		#{passwd},#{ssn1},#{ssn2},#{email},#{hp1},#{hp2},#{hp3},sysdate)
+ 	</insert>
+ 	
+ 	<delete id="deleteMember" parameterType="int">
+ 		delete from member where no = #{no}
+ 	</delete>
+ 	
+ 	<update id="updateMember" parameterType="memberDTO">
+ 		update member set passwd=#{passwd}, email=#{email}, 
+						hp1=#{hp1}, hp2=#{hp2}, hp3=#{hp3} where no=#{no}
+ 	</update>
+ 	
+ 	<select id="getMember" parameterType="int" resultType="memberDTO">
+ 		select * from member where no=#{no}
+ 	</select>
+ 	
+ 	<select id="listMember" resultType="memberDTO">
+ 		select * from member
+ 	</select>
+ 	
+ 	<select id="searchId" parameterType="java.util.Map" resultType="memberDTO">
+ 		select * from member where name=#{name} and ssn1=#{ssn1} and ssn2=#{ssn2}
+ 	</select>
+ 	
+ 	<select id="searchPw" parameterType="java.util.Map" resultType="memberDTO">
+ 		select * from member where name=#{name} and ssn1=#{ssn1} and ssn2=#{ssn2} and id=#{id}
+ 	</select>
+ 	
+ 	<select id="loginOk" parameterType="String" resultType="memberDTO">
+ 		select * from member where id=#{id}
+ 	</select>
+</mapper>
+
+
+
+
